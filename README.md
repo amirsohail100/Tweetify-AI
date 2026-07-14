@@ -4,7 +4,7 @@ The smartest way to repurpose your articles into high-engagement social media po
 
 ## 🌐 Live Demo
 
-👉 **[Click here to try Tweetify AI](YOUR_LIVE_APP_LINK_HERE)**
+👉 **[Click here to try Tweetify AI](https://tweetify-ai-6hwn6nowricg3fahq9gnhq.streamlit.app/)**
 
 ## 📸 Preview
 
