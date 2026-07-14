@@ -3,11 +3,14 @@ from langchain_mistralai import ChatMistralAI
 from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
 from langchain_core.prompts import ChatPromptTemplate,MessagesPlaceholder
 from langchain_core.output_parsers import JsonOutputParser
+load_dotenv()
+import streamlit as st
 import os
 
-load_dotenv()
+api_key = st.secrets.get("MISTRAL_API_KEY") or os.getenv("MISTRAL_API_KEY")
 
-LLM = ChatMistralAI(api_key=os.getenv("MISTRAL_API_KEY"), model="mistral-small-latest")
+
+LLM = ChatMistralAI(api_key=api_key, model="mistral-small-latest")
 
 
 system_instruction = """
