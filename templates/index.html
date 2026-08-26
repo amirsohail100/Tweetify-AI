@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tweetify-AI | Viral Social Post Generator</title>
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="brand">
+                <i class="fa-solid fa-rocket brand-icon">}</i>
+                <h2>Tweetify AI</h2>
+            </div>
+            <div class="sidebar-info">
+                <p><i class="fa-solid fa-microchip"></i> Powered by Mistral AI</p>
+                <p class="badge">v2.0 Fast HTML UI</p>
+            </div>
+            <button id="clearBtn" class="btn-secondary">
+                <i class="fa-solid fa-rotate-right"></i> Clear Session
+            </button>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="header">
+                <h1>Transform Articles into Viral Content</h1>
+                <p>Generate optimized posts for LinkedIn, X (Twitter), and Instagram instantly.</p>
+            </header>
+
+            <div class="workspace">
+                <!-- Input Panel -->
+                <div class="panel input-panel">
+                    <h3><i class="fa-solid fa-pen-nib"></i> Input Article / Text</h3>
+                    <textarea id="articleInput" placeholder="Paste your article or long-form content here..."></textarea>
+                    <button id="generateBtn" class="btn-primary">
+                        <span>Generate Viral Posts</span>
+                        <i class="fa-solid fa-bolt"></i>
+                    </button>
+                </div>
+
+                <!-- Output Panel -->
+                <div class="panel output-panel">
+                    <h3><i class="fa-solid fa-sparkles"></i> Your Social Posts</h3>
+                    
+                    <div id="placeholderState" class="placeholder-state">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <p>Your generated posts will appear here once you hit 'Generate Viral Posts'.</p>
+                    </div>
+
+                    <div id="loadingState" class="loading-state hidden">
+                        <div class="spinner"></div>
+                        <p>🧠 Mistral is crafting your viral posts...</p>
+                    </div>
+
+                    <div id="resultsContainer" class="results-container hidden">
+                        <!-- Tabs Header -->
+                        <div class="tabs-header">
+                            <button class="tab-btn active" data-target="linkedinTab">
+                                <i class="fa-brands fa-linkedin"></i> LinkedIn
+                            </button>
+                            <button class="tab-btn" data-target="twitterTab">
+                                <i class="fa-brands fa-x-twitter"></i> X Thread
+                            </button>
+                            <button class="tab-btn" data-target="instagramTab">
+                                <i class="fa-brands fa-instagram"></i> Instagram
+                            </button>
+                        </div>
+
+                        <!-- Tabs Content -->
+                        <div class="tabs-content">
+                            <!-- LinkedIn -->
+                            <div class="tab-pane active" id="linkedinTab">
+                                <div class="card-header-action">
+                                    <span>LinkedIn Post</span>
+                                    <button class="copy-btn" onclick="copyContent('linkedinText')"><i class="fa-regular fa-copy"></i> Copy</button>
+                                </div>
+                                <pre id="linkedinText" class="post-box"></pre>
+                            </div>
+
+                            <!-- Twitter -->
+                            <div class="tab-pane" id="twitterTab">
+                                <div class="card-header-action">
+                                    <span>X (Twitter) Thread</span>
+                                    <button class="copy-btn" onclick="copyTwitterThread()"><i class="fa-regular fa-copy"></i> Copy All</button>
+                                </div>
+                                <div id="twitterContainer" class="twitter-thread-box"></div>
+                            </div>
+
+                            <!-- Instagram -->
+                            <div class="tab-pane" id="instagramTab">
+                                <div class="card-header-action">
+                                    <span>Instagram Caption</span>
+                                    <button class="copy-btn" onclick="copyContent('instagramText')"><i class="fa-regular fa-copy"></i> Copy</button>
+                                </div>
+                                <pre id="instagramText" class="post-box"></pre>
+                            </div>
+                        </div>
+
+                        <!-- Refinement Bar -->
+                        <div class="refinement-section">
+                            <h4><i class="fa-solid fa-comments"></i> Want to modify or adjust these posts?</h4>
+                            <div class="refinement-input-group">
+                                <input type="text" id="refinementInput" placeholder="e.g., Make LinkedIn post shorter, or tweets funnier...">
+                                <button id="refineBtn" class="btn-accent"><i class="fa-solid fa-paper-plane"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
