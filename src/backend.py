@@ -7,7 +7,19 @@ load_dotenv()
 import streamlit as st
 import os
 
-api_key = st.secrets.get("MISTRAL_API_KEY") or os.getenv("MISTRAL_API_KEY")
+# सुरक्षित तरीके से Streamlit secrets को चेक करें ताकि FastAPI क्रैश न हो
+api_key = None
+
+try:
+    import streamlit as st
+    # यह सिर्फ तब काम करेगा जब ऐप Streamlit पर चल रहा हो और secrets.toml मौजूद हो
+    api_key = st.secrets.get("MISTRAL_API_KEY")
+except Exception:
+    pass
+
+# अगर Streamlit secrets से चाबी नहीं मिली (या ऐप Render पर चल रहा है), तो os.getenv से उठाएं
+if not api_key:
+    api_key = os.getenv("MISTRAL_API_KEY")
 
 
 LLM = ChatMistralAI(api_key=api_key, model="mistral-small-latest")
