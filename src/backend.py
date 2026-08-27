@@ -7,7 +7,7 @@ load_dotenv()
 import streamlit as st
 import os
 
-api_key = st.secrets.get("MISTRAL_API_KEY") or os.getenv("MISTRAL_API_KEY")
+api_key = os.getenv("MISTRAL_API_KEY") or st.secrets.get("MISTRAL_API_KEY")
 
 
 LLM = ChatMistralAI(api_key=api_key, model="mistral-small-latest")
