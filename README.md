@@ -8,7 +8,7 @@ The smartest way to repurpose your articles into high-engagement social media po
 
 ## 📸 Preview
 
-![Tweetify AI UI](UI.png)
+![Tweetify AI UI](assets\UI.png)
 
 ## 💡 Overview
 
